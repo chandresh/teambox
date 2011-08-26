@@ -6,17 +6,16 @@
 
   Talker.currentUser = {"name":"micho","id":2554,"color":"#ffe2bf","email":"pablo@teambox.com"};
   Talker.room = {"name":"Barcelona","id":819};
-  Talker.log = $('#log')
+  Talker.log = $('#log');
 
   // In order for this to work, the app must be running in:
   //   http://something.com
-  // and the following must be CNAMEd to talkerapp.com:
-  //   http://teambox.something.com
+  // and the following must be CNAMEd to talkerapp.com. The subdomain chosen doesn't really matter.
+  //   http://talker.something.com
   // Port and protocol must match, too.
 
   document.domain = document.domain;
-  //Orbited.settings.hostname = 'teambox.talkerapp.com';
-  Orbited.settings.hostname = 'teambox.teambox.dev';
+  Orbited.settings.hostname = 'talker.teambox.dev';
   Orbited.settings.port = 80;
   Orbited.settings.protocol = 'http'
   Orbited.settings.streaming = true;
@@ -42,9 +41,6 @@
 
       // Account plugins
       //   new Talker.Plugin_3());
-      //   new Talker.Plugin_4());
-      //   new Talker.Plugin_7());
-
 
       // Plugins that will always be loaded...
       new Talker.InviteCommand({invites_url: '/invites'}),
@@ -87,7 +83,8 @@
       if(navigator.platform.match(/iP(?:[ao]d|hone)/)) {
         $("#message_form").css('position', 'static').addClass('ios');
       }
-    })
+    });
+
   });
 })();
 //]]>
