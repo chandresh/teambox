@@ -1,60 +1,11 @@
 <!-- removed #container -->
-<div id="sidebar" style="top: 0">
-  <div id="utilities">
-    <div class="wrapper">
-      <a href="/rooms">Rooms</a> |
-      <a href="/settings" accesskey="m" target="_blank" title="Manage my settings">Settings</a> |
-      <a href="/logout" title="Logout">Logout</a> 
-    </div> 
-  </div> 
-
-  <span class="toggle_sidebar"> 
-    <em>Hide the sidebar</em> 
-    <b class="hide">&rarr;</b> 
-    <b class="show">&larr;</b> 
-  </span> 
+<div id="sidebar" style="top: 0; padding: 15px; padding-top: 0">
 
   <div id="error" class="flash error" style="display:none"></div>
-  <div id="room" class="panel"> 
-    <div class="header"> 
-      <h3 class="name" id="room_name"> 
-        Barcelona        
-          <span class="switch_rooms hide_rooms"> 
-            <b><!----></b> 
-            <div id="rooms"> 
-              <a href="/rooms/819" accesskey="1" class="current" title="Barcelona : Chat about the weather and the color of your socks.">Barcelona</a> 
-              <a href="/rooms/1208" accesskey="2" title="Hong Kong : ">Hong Kong</a> 
-              <a href="/rooms/1569" accesskey="3" title="Limassol : ">Limassol</a> 
-              <a href="/rooms" accesskey="r" class="back">&laquo; Back to Rooms</a> 
-            </div> 
-          </span> 
-      </h3> 
-    </div>
-    <div class="content"> 
-      <form action="/rooms/819/search" class="search_form" method="get" target="_blank"> 
-        <input accesskey="s" class="search" id="q" name="q" placeholder="Search logs ..." results="5" size="16" type="search" /> 
-        <a href="/rooms/819/logs" class="browse" target="_blank" title="Browse chat logs for this room">Browse</a> 
-      </form> 
+  <div id="room" class="panel" style="box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none"> 
+    <div class="content" style="background: none; border: 0; padding-top: 15px"> 
       <h4 class="name">Who&#39;s here?</h4> 
       <ul class="people" id="people"></ul> 
     </div> 
-    <div class="footer" id="admin_actions"> 
-      <label>Manage:</label> 
-      <a href="/plugins" accesskey="p" target="_blank" title="Manage plugins">Plugins</a> 
-      <a href="/feeds" accesskey="f" target="_blank" title="Manage feeds">Feeds</a> 
-      <a href="/users" accesskey="u" target="_blank" title="Manage users">Users</a> 
-    </div> 
-    <div class="footer" id="guest_access"> 
-      <label title="Guest Access allow people to access this room without creating a user account">Guest Access:</label> 
-      <img alt="Loader" id="guest_access_loader" src="https://assets2.talkerapp.com/images/loader.gif?1300194550" style="display:none" /> 
-      <a href="/rooms/819/guest/disable" class="disable">Disable</a><br/> 
-      <input type="text" id="guest_url" title="Send this link to someone to invite him to this room" value="https://teambox.talkerapp.com/r/d78cd5"/> 
-    </div> 
   </div> 
-  <a id="logo" class="logo" href="http://talkerapp.com" target="_blank"> 
-    Talker <img alt="Talker Fish Loves Thee" height="18" src="https://assets3.talkerapp.com/images/favicon.png?1300194550" width="18" /> Group Chat
-  </a> 
-  <a class="logo" id="logoteambox" href="http://www.teambox.com" target="_blank"> 
-    brought to you by Teambox
-  </a> 
 </div>
