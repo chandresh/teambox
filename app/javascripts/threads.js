@@ -1,8 +1,12 @@
 Threads = {
-  move: function(direction) {
 
+  // Moves the thread up or down, or paginates if we reached
+  // the end of the activity feed and there's a Show More button
+  //
+  // Return false if there are no threads
+  move: function(direction) {
     // No threads
-    if (!jQuery('.thread').length) { return true; }
+    if (!jQuery('.thread').length) { return false; }
 
     // Get first selected thread, or else the first thread
     var sel = jQuery('.thread.selected:first');
@@ -22,6 +26,7 @@ Threads = {
       }
     }
 
+    return true;
   },
   select: function(element) {
     jQuery('.thread.selected').removeClass('selected');
@@ -41,6 +46,12 @@ jQuery(function() {
   jQuery(document)
     .bind('keydown', 'j', function() { Threads.move("next"); })
     .bind('keydown', 'k', function() { Threads.move("prev"); })
+    .bind('keydown', 'down', function(e) {
+      Threads.move("next") && e.preventDefault();
+    })
+    .bind('keydown', 'up', function(e) {
+      Threads.move("prev") && e.preventDefault();
+    })
     .bind('keydown', 'enter', function() { Threads.toggleSelected(); })
 
 });
