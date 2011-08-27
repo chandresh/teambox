@@ -144,7 +144,6 @@
 
 //= require <util>
 
-//= require <actions>
 //= require <autoresize>
 //= require <badges>
 //= require <banner>
