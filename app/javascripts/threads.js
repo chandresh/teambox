@@ -1,23 +1,25 @@
 Threads = {
-  selectNext: function() {
-    Threads.move('next');
-  },
-  selectPrevious: function() {
-    Threads.move('previous');
-  },
   move: function(direction) {
-    if (!$$('.thread').any()) { return true }
-    var sel = $$('.thread.selected').first()
-    if (!sel) { sel = $$('.thread').first() }
-    var next = sel[direction]('.thread')
-    var btn = $('activity_paginate_link')
-    if (sel && next) {
-      Threads.select(next)
-      Threads.ensureVisible(next)
-    }
-    else if (!next && direction == 'next' && btn && btn.visible())
-    {
-      btn.fire('pseudo:click')
+
+    // No threads
+    if (!jQuery('.thread').length) { return true; }
+
+    // Get first selected thread, or else the first thread
+    var sel = jQuery('.thread.selected:first');
+    sel.length || (sel = jQuery('.thread:first'));
+
+    // Call prevAll or nextAll depending on the direction
+    var next = sel[direction+'All']('.thread:first');
+
+    if (sel.length && next.length) {
+      Threads.select(next);
+      Threads.ensureVisible(next);
+    } else if (!next.length && direction == 'next') {
+      var btn = jQuery('#activity_paginate_link')
+      if (btn.length && btn.is(":visible")) {
+        console.log("implement fetch more comments");
+        //btn.fire('pseudo:click')
+      }
     }
 
   },
@@ -26,13 +28,8 @@ Threads = {
     jQuery(element).addClass('selected');
   },
   ensureVisible: function(element) {
-    console.log('Disabled ensureVisible');
-    return;
-    var offsetTop = element.viewportOffset().top
-    if ( offsetTop < 0 || offsetTop + element.getHeight() > document.viewport.getHeight() )
-    {
-      Effect.ScrollTo(element, { duration: '0.4', offset: -40 })
-    }
+    var target_position = jQuery(element).position().top - 10;
+    jQuery(".content_scroll").scrollTop(target_position);
   },
   toggleSelected: function() {
     ActivityFeed.toggle(jQuery('.thread.selected'));
@@ -42,8 +39,8 @@ Threads = {
 jQuery(function() {
 
   jQuery(document)
-    .bind('keydown', 'j', function() { Threads.selectNext(); })
-    .bind('keydown', 'k', function() { Threads.selectPrevious(); })
+    .bind('keydown', 'j', function() { Threads.move("next"); })
+    .bind('keydown', 'k', function() { Threads.move("prev"); })
     .bind('keydown', 'enter', function() { Threads.toggleSelected(); })
 
 });
