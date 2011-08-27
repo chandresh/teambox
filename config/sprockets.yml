@@ -16,3 +16,10 @@
     - vendor/plugins/*/app/javascripts
   :source_files:
     - app/javascripts/public.js
+:talker:
+  :asset_root: public
+  :load_path:
+    - app/javascripts/talker/*
+  :source_files:
+    - app/javascripts/talker/application.js
+    - app/javascripts/talker/**/*.js
