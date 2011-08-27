@@ -36,7 +36,6 @@
 //= require <modules/uploader>
 //= require <modules/clock>
 //= require <modules/ajax_loading_spinner>
-//= require <modules/i18n>
 
 // TODO: move it to modules
 //= require <lib/teambox_api>
@@ -151,6 +150,7 @@
 //= require <compact_mode>
 //= require <datas>
 //= require <oauth>
+//= require <modules/i18n>
 //= require <datetime>
 
 //= require <forms>
@@ -161,7 +161,6 @@
 //= require <overlays>
 //= require <person>
 //= require <preview>
-//= require <sessions>
 //= require <task_list_templates>
 //= require <threads>
 //= require <push>
