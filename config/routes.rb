@@ -107,7 +107,6 @@ Teambox::Application.routes.draw do
     post  '/account/watch_list/unwatch/:watch_id' => 'watchers#unwatch', :as => :unwatch
     post  '/account/stats/:stat/inc' => 'users#increment_stat'
     post  '/account/badge/:badge/grant' => 'users#grant_badge'
-    post  '/account/first_steps/hide' => 'users#hide_first_steps'
     post  '/account/tutorials/hide' => 'users#hide_tutorials'
 
     resources :teambox_datas, :path => '/datas' do

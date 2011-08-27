@@ -204,7 +204,6 @@ module UsersHelper
           :pages => current_user.get_stat('pages'),
           :invites => current_user.get_stat('invites')
         },
-        :first_steps => current_user.show_first_steps,
         :badges => current_user.badges,
         :show_badges => current_user.show_badges,
         :can_create_project => (!Teambox.config.community || (@community_organization && @community_role)),

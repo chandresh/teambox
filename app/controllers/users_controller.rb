@@ -240,11 +240,6 @@ class UsersController < ApplicationController
     head :ok
   end
 
-  def hide_first_steps
-    @current_user.write_setting 'show_first_steps', false
-    head :ok
-  end
-
   def hide_tutorials
     @current_user.write_setting 'show_tutorials', false
     head :ok

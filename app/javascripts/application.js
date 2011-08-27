@@ -156,7 +156,6 @@
 //= require <datetime>
 //= require <expand_comment>
 
-//= require <first_steps>
 //= require <forms>
 //= require <hours>
 //= require <invitation>

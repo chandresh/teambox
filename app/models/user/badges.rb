@@ -1,6 +1,6 @@
 class User
 
-  attr_accessible :show_first_steps, :show_badges
+  attr_accessible :show_badges
 
   def badges
     settings['badges'] || []
@@ -17,14 +17,6 @@ class User
 
   def show_badges=(v)
     self.settings = { 'show_badges' => v == "1" }
-  end
-
-  def show_first_steps
-    !!settings['show_first_steps']
-  end
-
-  def show_first_steps=(v)
-    self.settings = { 'show_first_steps' => v == "1" }
   end
 
 end
