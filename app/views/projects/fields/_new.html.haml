@@ -19,10 +19,9 @@
       = errors_for project, :organization_id
 
 %h3= t('projects.fields.extra_options')
-- if time_tracking_enabled?
-  .check_box.archived
-    = f.check_box :tracks_time
-    = f.label :tracks_time, (t('projects.fields.tracks_time_html') + " " + time_tracking_doc).html_safe
+.check_box.archived
+  = f.check_box :tracks_time
+  = f.label :tracks_time, (t('projects.fields.tracks_time_html') + " " + time_tracking_doc).html_safe
 .check_box.archived
   = f.check_box :public
   = f.label :public, t('projects.fields.public_project_html')

@@ -7,7 +7,7 @@
       a.conversations.backboned(href= '#!/projects/'+project.permalink+"/conversations") <%= t('shared.navigation.conversations') %>
     .el(id= "project_"+project.permalink+"_task_lists")
       a.tasks.backboned(href= '#!/projects/'+project.permalink+"/task_lists") <%= t('shared.navigation.tasks') %>
-    <%# if true // time_tracking_enabled? and project.tracks_time %>
+    <%# if true // project.tracks_time %>
     .el
       a.time(href= '#!/projects/'+project.permalink+'/time') <%= t('shared.navigation.time') %>
     .el(id= "project_"+project.permalink+"_pages")

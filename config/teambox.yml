@@ -34,9 +34,6 @@ defaults: &defaults
   # Make sure your domain has a valid SSL certificate
   secure_logins: false
 
-  # Enable time tracking
-  allow_time_tracking: true
-  
   # Enable search (you must have thinking_sphinx installed and configured)
   # See http://wiki.github.com/teambox/teambox/configuring-search for more 
   # information on configuring search

@@ -186,10 +186,6 @@ module ApplicationHelper
     request.format == :rss
   end
   
-  def time_tracking_enabled?
-    Teambox.config.allow_time_tracking || false
-  end
-  
   def auto_discovery_link_by_context(user, project)
     if user
       path = project ? project_path(project, :format => :rss) : projects_path(:format => :rss)

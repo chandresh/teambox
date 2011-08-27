@@ -253,10 +253,6 @@ class ApplicationController < ActionController::Base
       !Teambox.config.community || User.count == 0
     end
 
-    def time_tracking_enabled?
-      Teambox.config.allow_time_tracking || false
-    end
-
     def load_community_organization
       if logged_in? and Teambox.config.community
         @community_organization = Organization.first
