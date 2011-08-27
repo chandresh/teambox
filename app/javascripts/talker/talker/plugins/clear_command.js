@@ -7,8 +7,8 @@ Talker.ClearCommand = function() {
   self.onCommand = function(event){
     if (event.command == 'clear') {
       Talker.insertNotice({user: {name: ''}, content: 'Last clear occured at this point.'});
-      while($('#log tr').length > 1) {
-        $('#log tr:first').remove();
+      while(jQuery('#log tr').length > 1) {
+        jQuery('#log tr:first').remove();
       }
       Talker.getMessageBox().val('');
       return false;

@@ -13,7 +13,7 @@ Talker.sendMessage = function(message) {
   if (typeof message == 'string'){
     talkerEvent.content = message;
   } else {
-    $.extend(true, talkerEvent, message);
+    jQuery.extend(true, talkerEvent, message);
   }
   
   Talker.client.send(talkerEvent);
@@ -21,7 +21,7 @@ Talker.sendMessage = function(message) {
 };
 
 Talker.sendAction = function(message, options) {
-  Talker.sendMessage($.extend({content: message, action: true}, options));
+  Talker.sendMessage(jQuery.extend({content: message, action: true}, options));
 };
 
 Talker.insertMessage = function(talkerEvent, content) {
@@ -42,7 +42,7 @@ Talker.insertMessage = function(talkerEvent, content) {
     
   } else {
     var escapedName = h(talkerEvent.user.name);
-    $('<tr author="' + escapedName + '" class="message event user_' + talkerEvent.user.id 
+    jQuery('<tr author="' + escapedName + '" class="message event user_' + talkerEvent.user.id 
         + (talkerEvent.user.id == Talker.currentUser.id ? ' me' : ' ')
         + (talkerEvent.private ? ' private' : '')
         + '">'
@@ -68,7 +68,7 @@ Talker.insertNotice = function(talkerEvent, content) {
   // We accept no HTML in notices
   talkerEvent.content = h(talkerEvent.content);
 
-  $('<tr author="' + h(talkerEvent.user.name) + '" class="notice event user_' + talkerEvent.user.id + '">'
+  jQuery('<tr author="' + h(talkerEvent.user.name) + '" class="notice event user_' + talkerEvent.user.id + '">'
     + '<td class="author"></td>'
     + '<td class="message">' + eventToLine(talkerEvent) + '</td></tr>')
     .appendTo('#log');

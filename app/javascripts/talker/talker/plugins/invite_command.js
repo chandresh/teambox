@@ -8,7 +8,7 @@ Talker.InviteCommand = function(options) {
     if (event.command == "invite") {
       var userEmails = event.args.join(",");
       
-      $.post(options.invites_url, {invitees: userEmails, room_id: Talker.getRoom().id}, null, 'script');
+      jQuery.post(options.invites_url, {invitees: userEmails, room_id: Talker.getRoom().id}, null, 'script');
       
       Talker.getMessageBox().val('');
       return false;

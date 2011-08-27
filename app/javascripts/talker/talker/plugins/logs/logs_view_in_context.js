@@ -6,7 +6,7 @@ Talker.LogsViewInContext = function(){
     var id = event.id;
     
     Talker.getLastInsertion().prepend(
-      $("<a/>").addClass('log')
+      jQuery("<a/>").addClass('log')
         .attr("href", "/rooms/" + room + "/logs/" + FormatHelper.getUrlDate(event.time) + "#event_" + id)
         .text("View in context")
     );

@@ -1,15 +1,15 @@
 // Simulate HTML5 placeholder attribute behaviour
-$(function() {
-  if (!$.browser.safari) {
-    $("input[type=text], input[type=search]").
+jQuery(function() {
+  if (!jQuery.browser.safari) {
+    jQuery("input[type=text], input[type=search]").
       focus(function() { 
-        if ($(this).attr('placeholder') && $(this).val() == $(this).attr('placeholder')) {
-          $(this).val('').removeClass("placeholder");
+        if (jQuery(this).attr('placeholder') && jQuery(this).val() == jQuery(this).attr('placeholder')) {
+          jQuery(this).val('').removeClass("placeholder");
         }
       }).
       blur(function() {
-        if ($(this).attr('placeholder') && ($(this).val() == '' || $(this).val() == $(this).attr('placeholder'))) {
-          $(this).addClass("placeholder").val($(this).attr('placeholder'));
+        if (jQuery(this).attr('placeholder') && (jQuery(this).val() == '' || jQuery(this).val() == jQuery(this).attr('placeholder'))) {
+          jQuery(this).addClass("placeholder").val(jQuery(this).attr('placeholder'));
         } 
       }).
       trigger("blur");

@@ -28,8 +28,8 @@ Talker.DefaultFormatter = function() {
     window.setTimeout(function(){
       var maxWidth = Talker.getMaxContentWidth();
 
-      $('#log pre').css('width', maxWidth - 22 + 'px');   // pastes and messages sent with multilines
-      $('#log blockquote').css('width', maxWidth + 'px'); // long sentences with no line breaks
+      jQuery('#log pre').css('width', maxWidth - 22 + 'px');   // pastes and messages sent with multilines
+      jQuery('#log blockquote').css('width', maxWidth + 'px'); // long sentences with no line breaks
     },0);
   }
 };

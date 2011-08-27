@@ -23,7 +23,7 @@ Talker.Broadcaster = {
         + "<br/><br/>Contact help@talkerapp.com if you need a hand with anything.";
       
       window.setTimeout(function(){
-        $.facebox(error);
+        jQuery.facebox(error);
       }, 1000);
       window.console && window.console.error && window.console.error(error.replace('<br/>', '\n'))
     }

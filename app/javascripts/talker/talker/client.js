@@ -89,7 +89,7 @@ Talker.Client = function(options) {
   
   self.connect = function() {
     try {
-      $("iframe[src*='xsdrBridge.html']").remove();
+      jQuery("iframe[src*='xsdrBridge.html']").remove();
       protocol = new LineProtocol(new TCPSocket());
       
       protocol.onopen = function() {

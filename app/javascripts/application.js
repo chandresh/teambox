@@ -7,7 +7,8 @@
 //= require <lib/underscore.string>
 //= require <socket_io>
 //= require <juggernaut>
-//= require <lib/jquery>
+// ---- <lib/jquery>
+console.log(jQuery.fn);
 //= require <lib/jquery.hotkeys>
 //= require <lib/jquery.hoverable>
 //= require <lib/backbone>

@@ -8,7 +8,7 @@ Talker.ErrorHandler = function(element) {
   
   self.onClose = function() {
     element.show().html(
-      $("<p/>").html("Connection lost with the chat server, trying to reconnect ...")
+      jQuery("<p/>").html("Connection lost with the chat server, trying to reconnect ...")
     );
   }
   

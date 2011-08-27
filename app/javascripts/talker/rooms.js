@@ -1,44 +1,44 @@
-$(function() {
+jQuery(function() {
   // Hide sidebar
-  $('#sidebar .toggle_sidebar').click(function(e) {
-    $('#sidebar #room, #sidebar #utilities, #sidebar .logo').toggle();
-    $('#main, #message_form, #sidebar .toggle_sidebar').toggleClass('expanded');
+  jQuery('#sidebar .toggle_sidebar').click(function(e) {
+    jQuery('#sidebar #room, #sidebar #utilities, #sidebar .logo').toggle();
+    jQuery('#main, #message_form, #sidebar .toggle_sidebar').toggleClass('expanded');
     Talker.trigger("Resize");
   });
-  $('#message_form .form_help').click(function(e) {
+  jQuery('#message_form .form_help').click(function(e) {
     // This may need some refactoring, duplication with app/javascripts/talker/plugins/help_command.js
-    var help_div = $('<div/>').addClass('small');
-    $(help_div).append($('<h3/>').html("Help"));
-    $(help_div).append($('<p/>').html('If you need a hand with anything send us an <a href="mailto:help@talkerapp.com">email</a>.'));
-    $(help_div).append($('<br/>'))
-    $(help_div).append($('<h4/>').html("Available commands:"));
+    var help_div = jQuery('<div/>').addClass('small');
+    jQuery(help_div).append(jQuery('<h3/>').html("Help"));
+    jQuery(help_div).append(jQuery('<p/>').html('If you need a hand with anything send us an <a href="mailto:help@talkerapp.com">email</a>.'));
+    jQuery(help_div).append(jQuery('<br/>'))
+    jQuery(help_div).append(jQuery('<h4/>').html("Available commands:"));
     _.each(Talker.getCommandsAndUsage(), function(cmd_usage) {
-      $(help_div).append($('<blockquote/>').css({'padding': '3px', 'font-size': 'small', 'font-family': 'monospace'}).html(cmd_usage[1]));
+      jQuery(help_div).append(jQuery('<blockquote/>').css({'padding': '3px', 'font-size': 'small', 'font-family': 'monospace'}).html(cmd_usage[1]));
     });
     jQuery.facebox(help_div);
   });
 
   // Room name dropdown
-  $('#rooms_controller.show #room_name').click(function(e) {
-    $('#rooms').toggle();
-    $(this).find('span.switch_rooms').toggleClass('hide_rooms').toggleClass('show_rooms');
+  jQuery('#rooms_controller.show #room_name').click(function(e) {
+    jQuery('#rooms').toggle();
+    jQuery(this).find('span.switch_rooms').toggleClass('hide_rooms').toggleClass('show_rooms');
     e.stopPropagation();
   });
   
-  $(document).click(function(e){
-    $('#rooms_controller.show #rooms').hide();
-    $('#rooms_controller.show #room span.switch_rooms').removeClass('show_rooms').addClass('hide_rooms');
+  jQuery(document).click(function(e){
+    jQuery('#rooms_controller.show #rooms').hide();
+    jQuery('#rooms_controller.show #room span.switch_rooms').removeClass('show_rooms').addClass('hide_rooms');
   });
   
   // File Upload
-  if ($('#upload')[0]){
+  if (jQuery('#upload')[0]){
     new AjaxUpload('#upload', {
-      action: $('a#upload').attr('href'),
+      action: jQuery('a#upload').attr('href'),
       name: 'upload',
       responseType: 'json',
       onComplete: function(file, response) {
-        $("#upload").show();
-        $("#upload_loader").hide();
+        jQuery("#upload").show();
+        jQuery("#upload_loader").hide();
         if (response.error) {
           alert("Error uploading file: " + response.error);
         } else {
@@ -46,21 +46,21 @@ $(function() {
         }
       },
       onSubmit: function() {
-        if ($.browser.safari){
-          $.get("/close_connection", {async: false});
+        if (jQuery.browser.safari){
+          jQuery.get("/close_connection", {async: false});
         }
-        $("#upload").hide();
-        $("#upload_loader").show();
+        jQuery("#upload").hide();
+        jQuery("#upload_loader").show();
       }
     });
   }
   
-  $("div#guest_access a").
+  jQuery("div#guest_access a").
     live("click", function() {
-      var link = $(this);
+      var link = jQuery(this);
       link.hide();
-      $("#guest_access_loader").show();
-      $.post(this.href, function() {
+      jQuery("#guest_access_loader").show();
+      jQuery.post(this.href, function() {
         if (link.hasClass("enable"))
           var action = "enabled";
         else
@@ -70,7 +70,7 @@ $(function() {
       return false;
     });
   
-  $("input#guest_url").live("click", function() {
+  jQuery("input#guest_url").live("click", function() {
     this.select();
   });
 });

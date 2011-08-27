@@ -12,14 +12,14 @@ Talker.UserColors = function(element) {
     }
     
     self.onUsers = function(event) {
-      $(event.users).each(function(){
+      jQuery(event.users).each(function(){
         updateUserColor(this, Talker.userColors[this.id]);
       });
     }
   }
   
   function updateUserColor(user, color) {
-    var userElement = $("#user_" + user.id);
+    var userElement = jQuery("#user_" + user.id);
     userElement.css('backgroundColor', color);
     return userElement;
   };

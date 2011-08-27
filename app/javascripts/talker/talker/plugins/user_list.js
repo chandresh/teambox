@@ -26,25 +26,25 @@ Talker.UserList = function(element) {
     };
 
     self.onUsers = function(event) { // this only ever occurs from talker directly so no worries about logs impeding.
-      $("#people").html("");
-      $(event.users).each(function(){
+      jQuery("#people").html("");
+      jQuery(event.users).each(function(){
         add(this);
       });
     }
   }
   
   function userElement(user) {
-    return $("#user_" + user.id)
+    return jQuery("#user_" + user.id)
   }
   
   // private
   function remove(user) {
-    userElement(user).animate({opacity: 0.0}, 400, function(){ $(this).remove() });
+    userElement(user).animate({opacity: 0.0}, 400, function(){ jQuery(this).remove() });
   }
   
   function add(user) {
     if (userElement(user).length < 1) {
-      updateUserElement($('<li/>'), user).attr("id", "user_" + user.id). // ID never changes
+      updateUserElement(jQuery('<li/>'), user).attr("id", "user_" + user.id). // ID never changes
                                           attr('user_id', user.id).
                                           appendTo(element);
     }
@@ -63,7 +63,7 @@ Talker.UserList = function(element) {
       userElement.attr('user_name', user.name).
                   attr('title', user.name).
                   html(
-                    $("<img/>").attr("alt", h(user.name)).
+                    jQuery("<img/>").attr("alt", h(user.name)).
                                 attr("src", avatarUrl(user))
                   ).
                   append("\n" + truncate(h(user.name), 8));

@@ -1,4 +1,5 @@
-(function($){
+(function(jQuery){
+  var $ = jQuery;
   $.fn.insertAtCaret = function(text, opts) {
     var element = $(this).get(0);
 

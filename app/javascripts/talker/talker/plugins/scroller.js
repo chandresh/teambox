@@ -21,10 +21,10 @@ Talker.MainScroller = Class.extend({
     }
 
     self.atBottom = function() {
-      return !($(window).height() - $(document).height() + $(window).scrollTop());
+      return !(jQuery(window).height() - jQuery(document).height() + jQuery(window).scrollTop());
     }
 
-    $(document.body).mousewheel(function(event, delta) {
+    jQuery(document.body).mousewheel(function(event, delta) {
       if (delta > 0){
         self.defaultScrollAmount = 0;
       } else if (self.atBottom()) {
@@ -32,7 +32,7 @@ Talker.MainScroller = Class.extend({
       }
     });
     
-    $(document).everyTime(50, 'scroll down continuously', function(i) {
+    jQuery(document).everyTime(50, 'scroll down continuously', function(i) {
       self.scrollToBottom();
     });
     
@@ -49,14 +49,14 @@ Talker.MainScroller = Class.extend({
   }
 });
 
-if ($.browser.safari) { // webkit akshully only browser to handle order of onscroll events properly.
+if (jQuery.browser.safari) { // webkit akshully only browser to handle order of onscroll events properly.
   Talker.Scroller = Talker.MainScroller.extend({
     init: function() {
       var self = this;
       
       self._super(false);
       
-      $(window).scroll(function(e){
+      jQuery(window).scroll(function(e){
         if (!self.scrollingWithJS){
           self.defaultScrollAmount = self.atBottom() ? 50000 : 0 ;
         }
@@ -79,7 +79,7 @@ if ($.browser.safari) { // webkit akshully only browser to handle order of onscr
       var self = this;
       self._super(false);
       
-      $(document).mousedown(function(e) {
+      jQuery(document).mousedown(function(e) {
         self.defaultScrollAmount = 0;
       }).mouseup(function(e) {
         if (self.atBottom()){

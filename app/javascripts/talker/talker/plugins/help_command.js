@@ -6,14 +6,14 @@ Talker.HelpCommand = function() {
   
   self.onCommand = function(event) {
     if (event.command == "help") {
-      var help_div = $('<div/>').addClass('small');
+      var help_div = jQuery('<div/>').addClass('small');
       
-      $(help_div).append($('<h3/>').html("Help"));
-      $(help_div).append($('<p/>').html('If you need a hand with anything send us an <a href="mailto:help@talkerapp.com">email</a>.'));
-      $(help_div).append($('<br/>'))
-      $(help_div).append($('<h4/>').html("Available commands:"));
+      jQuery(help_div).append(jQuery('<h3/>').html("Help"));
+      jQuery(help_div).append(jQuery('<p/>').html('If you need a hand with anything send us an <a href="mailto:help@talkerapp.com">email</a>.'));
+      jQuery(help_div).append(jQuery('<br/>'))
+      jQuery(help_div).append(jQuery('<h4/>').html("Available commands:"));
       _.each(Talker.getCommandsAndUsage(), function(cmd_usage) {
-        $(help_div).append($('<blockquote/>').css({'padding': '3px', 'font-size': 'small', 'font-family': 'monospace'}).html(cmd_usage[1]));
+        jQuery(help_div).append(jQuery('<blockquote/>').css({'padding': '3px', 'font-size': 'small', 'font-family': 'monospace'}).html(cmd_usage[1]));
       });
       jQuery.facebox(help_div);
       

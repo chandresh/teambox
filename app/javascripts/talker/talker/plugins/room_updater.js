@@ -4,7 +4,7 @@ Talker.RoomUpdater = function(url) {
   self.onLoaded = function() {
     self.onMessageReceived = function(event) {
       if (event.update) {
-        $.getScript(url);
+        jQuery.getScript(url);
       }
     };
   };

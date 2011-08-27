@@ -1,21 +1,21 @@
 function focusMsgBox() {
-  var msgbox = $('#msgbox')[0];
+  var msgbox = jQuery('#msgbox')[0];
   if (msgbox){
-    $('#msgbox').setCaretPosition(-1);
+    jQuery('#msgbox').setCaretPosition(-1);
     msgbox.focus();
     return true;
   }
   return false;
 };
 
-$(function() {
-  $('#send').click(function(e) {
-    if ($('#msgbox').val().length){
-      Talker.trigger("MessageSend", {type:"message", content: $("#msgbox").val()});
+jQuery(function() {
+  jQuery('#send').click(function(e) {
+    if (jQuery('#msgbox').val().length){
+      Talker.trigger("MessageSend", {type:"message", content: jQuery("#msgbox").val()});
     }
     e.preventDefault();
   });
-  $('#msgbox')
+  jQuery('#msgbox')
     .keydown(function(e){
       switch (e.which){
         case 33:
@@ -26,18 +26,18 @@ $(function() {
           if (this.value == '') return false; // ignore empty messages
           
           // we actually have a message
-          Talker.trigger("MessageSend", {type:"message", content: $("#msgbox").val()});
+          Talker.trigger("MessageSend", {type:"message", content: jQuery("#msgbox").val()});
           return false;
           break;
           
         case 27: // esc
-          $('#msgbox').focus().val('');
-          $(document).trigger('close.facebox');
+          jQuery('#msgbox').focus().val('');
+          jQuery(document).trigger('close.facebox');
           break;
       }
     });
   
-  $(window).keydown(function(e){
+  jQuery(window).keydown(function(e){
     switch (e.which){
       case 224: // Cmd in FF
       case 91:  // Cmd in Safari
@@ -57,7 +57,7 @@ $(function() {
     }
   });
   
-  $('#msgbox, input.search, #edit_room form input, #edit_room form textarea').keydown(function(e){
+  jQuery('#msgbox, input.search, #edit_room form input, #edit_room form textarea').keydown(function(e){
     if (e.which == 33 || e.which == 34){
       return;
     } else {
@@ -65,7 +65,7 @@ $(function() {
     }
   });
   
-  $(window).resize(function(){ Talker.trigger('Resize') });
+  jQuery(window).resize(function(){ Talker.trigger('Resize') });
   
   Talker.trigger('Resize');
 });

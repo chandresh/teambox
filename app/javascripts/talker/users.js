@@ -1,5 +1,5 @@
 // Pass timezone offset from the browser to backend using a magic cookie
-$.cookie("tzoffset", (new Date()).getTimezoneOffset());
+jQuery.cookie("tzoffset", (new Date()).getTimezoneOffset());
 
 String.prototype.assetHash = function() {
   var start = 0;
@@ -20,13 +20,13 @@ function avatarUrl(user, size) {
   return assetHost("/avatar/" + MD5(user.email || "") + ".jpg?s=" + size);
 }
 
-$(function() {
-  $("#room_access_private, #room_access_public").change(function() {
-    var privateAccess = $("#room_access_private")[0].checked;
+jQuery(function() {
+  jQuery("#room_access_private, #room_access_public").change(function() {
+    var privateAccess = jQuery("#room_access_private")[0].checked;
     if (privateAccess) {
-      $("#invitees").show();
+      jQuery("#invitees").show();
     } else {
-      $("#invitees").hide();
+      jQuery("#invitees").hide();
     }
   }).trigger("change"); 
 });

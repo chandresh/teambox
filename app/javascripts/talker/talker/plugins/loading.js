@@ -3,6 +3,6 @@ Talker.Loading = function() {
   var plugin = this;
   
   plugin.onConnected = function(event) {
-    $("#curtain, #loading").fadeOut("normal", function() { $(this).remove() });
+    jQuery("#curtain, #loading").fadeOut("normal", function() { jQuery(this).remove() });
   };
 };

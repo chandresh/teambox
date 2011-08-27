@@ -1,12 +1,12 @@
-(function($){
+(function(jQuery){
   /** Add CLI-style autocomplete to an element.
       options:
         trigger: char that will trigger autocompletion.
         finder: function that returns an array of possibilities
         options.startOnly: true to trigger only at the start of the content.
   **/
-  $.fn.autocompleter = function(trigger, finder, options) {
-    var element = $(this);
+  jQuery.fn.autocompleter = function(trigger, finder, options) {
+    var element = jQuery(this);
     var currentCycle = null;
     var tab = false;
     options = options || {};

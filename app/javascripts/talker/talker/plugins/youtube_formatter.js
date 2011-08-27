@@ -2,7 +2,7 @@ Talker.YoutubeFormatter = function() {
   var self = this;
   
   self.onMessageReceived = function(event){
-    var youtube_expression = /^(?:http\S+youtube\.com\/watch\?v=)([\w-]+)(?:\S*)$/;
+    var youtube_expression = /^(?:http\S+youtube\.com\/watch\?v=)([\w-]+)(?:\S*)jQuery/;
     var youtube_match  = event.content.match(youtube_expression);
     
     if (youtube_match){

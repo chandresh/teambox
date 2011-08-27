@@ -20,7 +20,7 @@ Talker.Timestamp = function(reverse) {
     if (last_row.hasClass('timestamp')) {
       last_row.remove();
     }
-    var element = $('<tr/>').addClass('timestamp');
+    var element = jQuery('<tr/>').addClass('timestamp');
     
     var date = FormatHelper.timestamp2date(time);
     var lastDate = FormatHelper.timestamp2date(lastTime);
@@ -31,9 +31,9 @@ Talker.Timestamp = function(reverse) {
                              date.getDate() != lastDate.getDate())
         ) {
       element
-        .append($('<td/>').addClass('date')
-          .append($('<div/>')
-            .append($('<span/>').addClass('marker').html(
+        .append(jQuery('<td/>').addClass('date')
+          .append(jQuery('<div/>')
+            .append(jQuery('<span/>').addClass('marker').html(
               '<b><!----></b><i><span class="date">' 
                 + FormatHelper.getDate(time)
               + '</span><span class="month">'
@@ -43,13 +43,13 @@ Talker.Timestamp = function(reverse) {
           )
         );
     } else {
-      element.append($('<td/>'));
+      element.append(jQuery('<td/>'));
     }
     
     element
-      .append($('<td/>').addClass('time')
-        .append($('<div/>')
-          .append($('<span/>').addClass('marker').attr('time', time)
+      .append(jQuery('<td/>').addClass('time')
+        .append(jQuery('<div/>')
+          .append(jQuery('<span/>').addClass('marker').attr('time', time)
             .html('<b><!----></b><i>' + FormatHelper.toHumanTime(time) + '</i>')
           )
         )

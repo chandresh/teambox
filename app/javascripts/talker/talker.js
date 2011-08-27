@@ -5,14 +5,14 @@ Talker = {};
 //= require "talker/events"
 
 Talker.getMessageBox = function() {
-  return $('#msgbox');
+  return jQuery('#msgbox');
 }
 
 // speed++ insertions by removing/caching information that we'd reach by dom calls
 Talker.lastInsertionEvent = Talker.dummyInsertionEvent = {user: {name:null},type:null,private:false}; // start with a dummy
 
 Talker.getLastRow = function() {
-  return $('#log tr:last');
+  return jQuery('#log tr:last');
 }
 
 Talker.getLastAuthor = function() {
@@ -20,15 +20,15 @@ Talker.getLastAuthor = function() {
 }
 
 Talker.getLastInsertion = function() {
-  return $('#log div[class=line]:last');
+  return jQuery('#log div[class=line]:last');
 }
 
 Talker.getLastPending = function() {
-  return $("#log div[pending='true'].line");
+  return jQuery("#log div[pending='true'].line");
 }
 
 Talker.getMaxContentWidth = function() {
-  return $('#chat_log').width() - $('#log tr td:first').width() - 25;
+  return jQuery('#chat_log').width() - jQuery('#log tr td:first').width() - 25;
 }
 
 Talker.notify = function(talkerEvent, content) {

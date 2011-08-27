@@ -8,8 +8,8 @@ Talker.LogsUserList = function(element) {
   };
   
   function add(user) {
-    if ($("#user_" + user.id).length < 1) {
-     $('<li/>')
+    if (jQuery("#user_" + user.id).length < 1) {
+     jQuery('<li/>')
         .attr("id", "user_" + user.id)
         .attr('user_id', user.id)
         .attr('user_name', user.name)

@@ -31,8 +31,8 @@ load_room = function() {
     //new Talker.Scroller(),
     new Talker.Notifier(), //provides onblur/onfocus handlers
     new Talker.UserList($('#people')), // sidebar updating of users.
+    //new Talker.RoomUpdater('/rooms/819/refresh'), // update room info
 /*
-    new Talker.RoomUpdater('/rooms/819/refresh'), // update room info
     new Talker.Timestamp(),// << depends on order to be included properly.  I say it should remain mandatory for usability reasons.
     new Talker.HighlightMe(),
     new Talker.ReceivedSound(),
