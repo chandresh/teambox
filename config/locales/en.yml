@@ -1178,6 +1178,7 @@ en:
       confirm_delete: Are you sure you want to leave this project?
       leave_project: Leave project
   comments:
+    contracted: This comment is too long to be displayed. Click for the full view.
     fields:
       attach: Attach
     attach:

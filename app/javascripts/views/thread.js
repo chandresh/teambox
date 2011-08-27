@@ -5,6 +5,7 @@
                , className: 'thread'
                , template: Teambox.modules.ViewCompiler('partials.thread')
                , comment_template: Teambox.modules.ViewCompiler('partials.comment')
+               , expand_template: Teambox.modules.ViewCompiler('comments.expand')
                };
 
   Thread.events = {
@@ -13,6 +14,7 @@
   , 'click a.edit': 'editComment'
   , 'click a.delete': 'deleteComment'
   , 'mouseover .comment .actions_menu': 'applyCommentActionRules'
+  , 'click .expand_comment': 'expandComment'
   };
 
   Thread.initialize = function (options) {
@@ -223,6 +225,9 @@
     attributes.recent_comments = attributes.recent_comments.reverse();
     jQuery(this.el).html(this.template(attributes));
 
+    // Deferring, so the DOM is updated and height is measured correctly
+    _.defer(this.contractComments.bind(this));
+
     // Insert the comment form at bottom of the thread element
 
     this.comment_form.el = this.$('div.new_comment_wrap');
@@ -232,7 +237,34 @@
       this.$('div.new_comment_wrap').append(this.convert_to_task.render().el);
     }
 
+
     return this;
+  };
+
+  // Contract comments that are too tall.
+  Thread.contractComments = function(max_height) {
+    var self = this;
+    max_height = max_height || 500;
+
+    this.$('.comment').each(function(i,comment) {
+      comment = jQuery(comment);
+      if (comment.find(".expand_comment").length) { return; }
+      if (comment.height() > max_height) {
+        comment.find(".block").append(self.expand_template());
+        comment.find(".block .body").css({
+          "height": max_height+"px",
+          "overflow-y": "hidden"
+        });
+      }
+    });
+  };
+
+  // Expand comment that has been contracted
+  Thread.expandComment = function(e) {
+    e.preventDefault();
+    var el = jQuery(e.currentTarget);
+    el.parents(".comment").find(".body").css({ "height": "auto" });
+    el.remove();
   };
 
   Thread.applyCommentActionRules = function(event) {

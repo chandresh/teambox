@@ -152,7 +152,6 @@
 //= require <oauth>
 //= require <i18n>
 //= require <datetime>
-//= require <expand_comment>
 
 //= require <forms>
 //= require <hours>
