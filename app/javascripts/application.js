@@ -146,7 +146,6 @@
 
 //= require <autoresize>
 //= require <badges>
-//= require <banner>
 //= require <comment>
 //= require <compact_mode>
 //= require <datas>
